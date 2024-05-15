@@ -1,0 +1,401 @@
+
+:root {
+    --colore-sfondo: rgb(12, 52, 12,1); /*rgb(7, 58, 7, 1) colore principale */
+    --colore-testo: #333; /* colore del testo */
+  }
+
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Open Sans", sans-serif;
+
+}
+
+.scritte{
+    color: #fff;
+    
+    font-family: Georgia, serif;
+    font-variant: small-caps;  
+}
+
+.scritte2{
+    
+    font-family: Georgia, serif;
+    font-variant: small-caps;  
+}
+
+body{
+    height: 100vh;
+    background-color: black;
+    background-image: url("image/pallina.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+a:hover{
+    text-decoration: none;
+    color: grey;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+    height: 120px;
+    background-color: rgb(7, 58, 7,0.8);
+}
+
+.navbarprova{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbarprova .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 300px; /* Imposta la larghezza dell'immagine */
+    height: 160px; /* Imposta l'altezza dell'immagine in base al rapporto d'aspetto */
+    display: block; /* Imposta l'immagine come elemento blocco */
+     /* Centra l'immagine all'interno del div */
+    margin-top: 15px;
+    padding-top: 20px;
+}
+
+.navbarprova .links{
+    display: flex;
+    gap: 2rem;
+    text-decoration: none;
+
+}
+
+.navbarprova .toggle_btn{
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+
+}
+
+.action_btn {
+    background-color: #fff;
+    color: var(--colore-sfondo);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border: 2px solid var(--colore-sfondo); 
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0,2 ease;
+}
+
+.action_btn:hover {
+    border: 2px solid var(--colore-sfondo); 
+    background-color: rgb(43, 186, 43); /* colore di sfondo al passaggio del mouse */
+    color: var(--colore-sfondo); /* colore del testo al passaggio del mouse */
+    
+  }
+
+.action_btn:hover{
+scale: 1.05;
+color: white;
+}
+
+.action_btn:active{
+    scale: 0.95;
+    }
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    width: 300px;
+    height: 0;
+    top: 60px;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0,2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+    height: 240px;
+    z-index: 1;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+    @media (max-width : 992px) {
+        .navbarprova .links ,
+        .navbarprova .action_btn{
+            display: none;
+        }
+
+         .navbarprova .toggle_btn{
+            display: block;
+        }
+
+        .dropdown_menu{
+            display: block;
+        }
+        /*.transparent-bg{
+            min-width: 600px;
+        }*/
+
+    } 
+
+    @media (max-width : 576px) {
+        .dropdown_menu{
+            left: 2rem;
+            width: unset;
+        }
+
+        .transparent-bg {
+          margin: 5px;
+        
+          }
+          
+
+    }
+
+    @media (max-width : 400px) {
+        .logo img {
+            width: 220px; /* Imposta la larghezza dell'immagine */
+            height: 130px; /* Imposta l'altezza dell'immagine in base al rapporto d'aspetto */
+            display: block; /* Imposta l'immagine come elemento blocco */
+            /* Centra l'immagine all'interno del div */
+            margin-top: 15px;
+            padding-top: 20px;
+        }
+    }
+
+    .main{
+        margin-bottom: 10px;
+    }
+
+    .page-container {
+        position: relative;
+        min-height: 80vh;
+        
+      }
+      
+      .content-wrap {
+        padding-bottom: 2.5rem;    /* altezza del footer */
+      }
+
+    /*FOOTER*/
+    footer {
+        /*background-color: #333;
+        background-color: rgb(7, 58, 7,0.8);*/
+        color: #fff;
+        /*padding: 20px;*/
+        bottom: 0;
+        /*position: fixed;*/
+        width: 100%;
+        position: absolute;
+        height: 2.5rem; 
+        
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+         /*background-color: #333;*/
+         background-color: rgb(7, 58, 7,0.8);
+        color: #fff;
+        
+        /*width: 900px;*/
+    }
+    
+    .footer-left, .footer-right {
+        flex: 1;
+        margin: 5px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .footer-right ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-right ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .copyright {
+        padding-top: 10px;
+        text-align: center;
+         /*background-color: #333;*/
+         background-color: rgb(7, 58, 7,0.8);
+        color: #fff;
+    }
+    
+
+
+/*PAGINE*/
+
+/*HOME*/
+
+.ggt{
+    color: #fff;
+    font-weight: bold; 
+    font-size: 70px;
+    font-family: Impact, fantasy;
+    
+}
+
+.frase{
+    color: #fff;
+    
+    font-family: Georgia, serif;
+    font-style: oblique;
+    font-stretch: ultra-condensed;
+    
+}
+
+.body_home{
+    position: absolute;
+    text-align: center;
+    right: 150px;
+    top: 100px;
+    font-family: Arial, sans-serif; /* Famiglia del font */
+    font-size: 30px; /* Dimensione del font */
+    
+}
+
+/*FORM*/
+
+
+.container_classifiche{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nomeForm{
+    text-align: center;
+}
+
+/*PRO*/
+
+.container_btn{
+    margin: 3px;
+
+}
+
+.btnRegistrati, .btnLogin{
+    border: 2px solid var(--colore-sfondo); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colore-sfondo);
+    transition: all 0.3s ease;
+    min-width: 400px;
+}
+
+
+  /* Stile per il cambiamento di colore al passaggio del mouse */
+  .btnRegistrati:hover, .btnLogin:hover {
+    border: 2px solid var(--colore-sfondo); 
+    background-color: rgb(43, 186, 43); /* colore di sfondo al passaggio del mouse */
+    color: var(--colore-sfondo); /* colore del testo al passaggio del mouse */
+    
+  }
+
+  .transparent-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Imposta un colore di sfondo bianco con opacità del 80% */
+    padding: 20px; /* Aggiunge spazio intorno al riquadro */
+    border-radius: 10px; /* Aggiunge bordi arrotondati */
+    
+  }
+
+
+  /*CLASSIFICHE*/
+
+  .dropdownTornei{
+        width: auto;
+        
+  }
+
+ 
+
+  .table {
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+  /*
+   .table-bordered th,
+    .table-bordered td {
+        border: 1.5px solid #000000 !important;
+       
+    }*/
+    .table th, .table td {
+        border: none;
+        text-align: center;
+        padding: 8px;
+        margin: 0px;
+        width: auto; /* Imposta la larghezza adattativa */
+        white-space: nowrap;
+    } 
+
+    thead th:nth-child(1){
+        width: 10%;
+    }
+/*
+    .table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .posizione{
+        
+    }
+*/
+  /*MODAl*/
+  .inline-p {
+    display: inline-block;
+    margin-right: 10px; /* Aggiunge spazio tra i paragrafi, se desiderato */
+}
+
+  
+
+  
