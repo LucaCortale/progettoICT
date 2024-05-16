@@ -53,52 +53,10 @@ function validaForm(event) {
 
   <div class=" container mt-5 ">
     <div class="row justify-content-center">
-      <div class="col-md-8 transparent-bg"><div class="nomeForm">REGISTRAZIONE</div>
-        <form onsubmit= "validaForm(event)" action="registrazioneOk.php" method="post">
-          <div class="form-row">
-            <div class="form-group col-md-4 ">
-              <label for="inputNome">Nome</label>
-              <input type="text" class="form-control" name="inputNome" id="inputNome" placeholder="Nome">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputCognome">Cognome</label>
-              <input type="text" class="form-control" name="inputCognome" id="inputCognome" placeholder="Cognome">
-            </div>
-            
-            <div class="form-group col-md-4">
-              <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password">
-            </div>
-            
-            
-            <div class="form-group col-md-4">
-              <label for="inputUsername">P.IVA</label>
-              <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputTelefono">Telefono</label>
-              <input type="tel" class="form-control" id="inputTelefono" placeholder="Telefono">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputIndirizzo">Indirizzo</label>
-              <input type="text" class="form-control" id="inputIndirizzo" placeholder="Indirizzo">
-            </div>
-          </div>
-          <div class="row justify-content-center">   
-         
-            <div class="col-auto container_btn">
-            <button type="submit" class="btn btn-primary btnRegistrati">Registrati</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-md-8 transparent-bg"><div class="nomeForm">HOME</div>
+        
           <div class="row justify-content-center">
-              <div class="col-auto container_btn">
-                <button type="text" onclick="window.location.href='login.php'" class="btn btn-primary btnLogin">Effettua Login</button>
-              </div>
+              
           </div>
           
       </div>

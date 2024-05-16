@@ -28,8 +28,8 @@
 
 body{
     height: 100vh;
-    background-color: black;
-    background-image: url("image/pallina.jpg");
+    background-color: whitesmoke;
+    
     background-size: cover;
     background-position: center;
 }
@@ -52,7 +52,8 @@ header{
     position: relative;
     padding: 0 2rem;
     height: 120px;
-    background-color: rgb(7, 58, 7,0.8);
+    background-color: grey;
+    /*background-color: rgb(7, 58, 7,0.8);*/
 }
 
 .navbarprova{
@@ -269,24 +270,7 @@ color: white;
 
 /*PAGINE*/
 
-/*HOME*/
 
-.ggt{
-    color: #fff;
-    font-weight: bold; 
-    font-size: 70px;
-    font-family: Impact, fantasy;
-    
-}
-
-.frase{
-    color: #fff;
-    
-    font-family: Georgia, serif;
-    font-style: oblique;
-    font-stretch: ultra-condensed;
-    
-}
 
 .body_home{
     position: absolute;
@@ -346,13 +330,6 @@ color: white;
   }
 
 
-  /*CLASSIFICHE*/
-
-  .dropdownTornei{
-        width: auto;
-        
-  }
-
  
 
   .table {
@@ -380,22 +357,6 @@ color: white;
     thead th:nth-child(1){
         width: 10%;
     }
-/*
-    .table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    
-    .posizione{
-        
-    }
-*/
-  /*MODAl*/
-  .inline-p {
-    display: inline-block;
-    margin-right: 10px; /* Aggiunge spazio tra i paragrafi, se desiderato */
-}
 
-  
 
   
