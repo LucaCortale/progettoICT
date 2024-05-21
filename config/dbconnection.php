@@ -4,7 +4,7 @@ class DB_Connection {
     private $servername = "127.0.0.1";
     private $username = "root";
     private $password = "";
-    private $dbname = "xgames";
+    private $dbname = "";
     public $conn;
 
     public function __construct() {
