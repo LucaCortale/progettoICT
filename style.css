@@ -29,7 +29,7 @@
 body{
     height: 100vh;
     background-color: whitesmoke;
-    
+    background-image: url("image/stalla.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -72,7 +72,7 @@ header{
 }
 
 .logo img {
-    width: 300px; /* Imposta la larghezza dell'immagine */
+    width: 150px; /* Imposta la larghezza dell'immagine */
     height: 160px; /* Imposta l'altezza dell'immagine in base al rapporto d'aspetto */
     display: block; /* Imposta l'immagine come elemento blocco */
      /* Centra l'immagine all'interno del div */
@@ -84,7 +84,7 @@ header{
     display: flex;
     gap: 2rem;
     text-decoration: none;
-
+    margin: 5px;
 }
 
 .navbarprova .toggle_btn{
@@ -233,7 +233,7 @@ color: white;
         display: flex;
         justify-content: space-between;
          /*background-color: #333;*/
-         background-color: rgb(7, 58, 7,0.8);
+         background-color: grey;
         color: #fff;
         
         /*width: 900px;*/
@@ -262,7 +262,7 @@ color: white;
         padding-top: 10px;
         text-align: center;
          /*background-color: #333;*/
-         background-color: rgb(7, 58, 7,0.8);
+         background-color: grey;
         color: #fff;
     }
     
@@ -279,6 +279,9 @@ color: white;
     top: 100px;
     font-family: Arial, sans-serif; /* Famiglia del font */
     font-size: 30px; /* Dimensione del font */
+    
+    
+
     
 }
 

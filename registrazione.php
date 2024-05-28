@@ -15,11 +15,9 @@ function validaForm(event) {
             var inputCognome = document.getElementById("inputCognome").value;
             var inputEmail = document.getElementById("inputEmail").value;
             var inputPassword = document.getElementById("inputPassword").value;
-            var inputConfermaPassword = document.getElementById("inputConfermaPassword").value;
-            var inputnTessera = document.getElementById("inputnTessera").value;
-            var inputUsername = document.getElementById("inputUsername").value;
+            var inputP_Iva = document.getElementById("inputP_Iva").value;
             var inputTelefono = document.getElementById("inputTelefono").value;
-           
+            var inputIndirizzo = document.getElementById("inputIndirizzo").value;
             //operatore di coalescenza nulla ?? per controllare se una variabile è nulla o indefinita.
             //eseguita se almeno una delle variabili è nulla
             
@@ -34,14 +32,11 @@ function validaForm(event) {
             event.preventDefault(); // Impedisce l'invio del modulo se la validazione fallisce
             }
 
-            if (inputPassword != inputConfermaPassword) {
-            alert("Le password non coincidono. Inserire password uguali. ");
-            event.preventDefault(); // Impedisce l'invio del modulo se la validazione fallisce
-            }
+            
 
             if (inputNome == "" || inputCognome == ""  || inputEmail == "" || 
-            inputPassword == ""  || inputConfermaPassword == "" ||//|| inputnTessera== ""|| inputTelefono== ""
-            inputUsername== ""  ) {
+            inputPassword == ""  || inputP_Iva == "" ||//|| inputnTessera== ""|| inputTelefono== ""
+            inputIndirizzo== ""  ) {
             alert("Inserire tutti i campi richiesti.");
             event.preventDefault(); // Impedisce l'invio del modulo se la validazione fallisce
             }
@@ -76,16 +71,20 @@ function validaForm(event) {
             
             
             <div class="form-group col-md-4">
-              <label for="inputUsername">P.IVA</label>
-              <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username">
+              <label for="inputP_Iva">P.IVA</label>
+              <input type="text" class="form-control" name="inputP_Iva" id="inputP_Iva" placeholder="P. IVA">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputNomeAzienda">Nome Azienda</label>
+              <input type="text" class="form-control" name="inputNomeAzienda" id="inputNomeAzienda" placeholder="Nome Azienda">
             </div>
             <div class="form-group col-md-4">
               <label for="inputTelefono">Telefono</label>
-              <input type="tel" class="form-control" id="inputTelefono" placeholder="Telefono">
+              <input type="tel" class="form-control" name="inputTelefono" id="inputTelefono" placeholder="Telefono">
             </div>
             <div class="form-group col-md-4">
               <label for="inputIndirizzo">Indirizzo</label>
-              <input type="text" class="form-control" id="inputIndirizzo" placeholder="Indirizzo">
+              <input type="text" class="form-control" name="inputIndirizzo" id="inputIndirizzo" placeholder="Indirizzo">
             </div>
           </div>
           <div class="row justify-content-center">   

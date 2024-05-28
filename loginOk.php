@@ -10,12 +10,14 @@ $manager = new Data_Manager();
   
 $_SESSION['pagina_di_provenienza'] = $_SERVER['REQUEST_URI'];
 
-$username = $_POST["inputUsername"];
+$P_Iva = $_POST["inputP_Iva"];
 $password = $_POST["inputPassword"];
 $ricordami = $_POST["ricordami"];
 
+
+
 //echo $manager->getPass($username,$password);
-$result_array = json_decode($manager->getPass($username,$password), true);
+$result_array = json_decode($manager->getPass($P_Iva,$password), true);
 
 //if(isset($result_array)){echo $result_array[0]['salt'];}
 
@@ -27,8 +29,8 @@ if (password_verify( $password_with_salt_from_db,$hashed)) {
     // Password corretta, concedi l'accesso
     //echo $result_array[0]['password']."passsato";
     $_SESSION['logged_in'] = true;
-    $_SESSION['username'] = $username; // $username dovrebbe essere l'username dell'utente autenticato
-    
+    $_SESSION['P_Iva'] = $P_Iva; // $username dovrebbe essere l'username dell'utente autenticato
+    $_SESSION['nomeAzienda'] = $result_array[0]['nomeAzienda'];
 
     //$_SESSION['password'] = $password;
     //$_SESSION['ricordami'] = $ricordami ;

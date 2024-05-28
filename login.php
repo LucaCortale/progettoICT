@@ -51,8 +51,8 @@ unset($_SESSION['pagina_di_provenienza']);
                 
                   
                 <div class="form-group col-md-6">
-                    <label for="inputUsername" class="scritte2 nomeForm">Username</label>
-                    <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username" value="<?php echo (isset($_SESSION['ricordami']) && $_SESSION['ricordami'] == 1 && isset($_SESSION['password'])) ? $_SESSION['username'] : ''; ?>">
+                    <label for="inputP_Iva" class="scritte2 nomeForm">P. IVA</label>
+                    <input type="text" class="form-control" name="inputP_Iva" id="inputP_Iva" placeholder="P.IVA" value="<?php echo (isset($_SESSION['ricordami']) && $_SESSION['ricordami'] == 1 && isset($_SESSION['password'])) ? $_SESSION['P_Iva'] : ''; ?>">
                 </div>
                 </div>
                 <div class="form-row justify-content-center">
@@ -71,7 +71,7 @@ unset($_SESSION['pagina_di_provenienza']);
                 <div class="form-row justify-content-center">   
               
                   <div class="col-auto container_btn">
-                  <button type="submit" class="btn btn-primary btnRegistrati scritte2">REGISTRATI</button>
+                  <button type="submit" class="btn btn-primary btnRegistrati scritte2">LOGIN</button>
                   </div>
                 </div>
               </form>

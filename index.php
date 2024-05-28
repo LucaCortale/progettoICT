@@ -29,7 +29,7 @@
     <header>
         
                 <div class="navbarprova">
-                    <a href="home.php"><div class="logo"><img href="home.php" src="image/logo6.png"></div></a>
+                    <a href="home.php"><div class="logo"><img href="home.php" src="image/logo.png"></div></a>
                         <ul class="links scritte">
                             <li><a href="home.php">Home</a></li>
                             <li><a href="regolamento.php">Regolamento</a></li>
@@ -43,8 +43,8 @@
                             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                     // L'utente è autenticato
                                    // echo"DENTROOOOOO";
-                                    $username = $_SESSION['username'];
-                                    echo"<li><a href='logout.php'>logout</a></li></ul><a class=' btn btn-primary action_btn scritte' id='action_btn' disabled> $username </a>";
+                                    $nomeAzienda = $_SESSION['nomeAzienda'];
+                                    echo"<li><a href='logout.php'>logout</a></li></ul><a class=' btn btn-primary action_btn scritte' id='action_btn' disabled> $nomeAzienda </a>";
                                     
                                 }else{echo"</ul><a href='registrazione.php' class='btn btn-primary action_btn scritte' id='action_btn'>Login/Registrati</a>";
                                 } ?>
@@ -63,8 +63,8 @@
                             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                     // L'utente è autenticato
                                     //echo"DENTROOOOOO";
-                                    $username = $_SESSION['username'];
-                                    echo"<li> $username </li>";
+                                    $nomeAzienda = $_SESSION['nomeAzienda'];
+                                    echo"<li>".$nomeAzienda."</li>";
                                     
                                 }else{echo"<li> <a href='registrazione.php' >Login/Registrati </a></li>";
                                 } ?>

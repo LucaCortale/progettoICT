@@ -1,6 +1,6 @@
 <?php
 require_once('dbconnection.php');
-require_once('classi.php');
+//require_once('classi.php');
 
 class Data_Manager {
     private $conn;
@@ -11,16 +11,16 @@ class Data_Manager {
     }
 
     // Metodo per inserire un nuovo utente nel database
-    public function insertUser($nome,$cognome,$email,$password,$username) {
+    public function insertUser($nome,$cognome,$email,$password,$p_iva,$telefono,$indirizzo,$nomeAzienda) {
         
-        $sql = "INSERT INTO UTENTE (nome, cognome,username, email, password,salt) VALUES (?, ?,?, ?, ?,?)";
+        $sql = "INSERT INTO UTENTE (nome, cognome,email, password, salt, p_iva,telefono,indirizzo,nomeAzienda) VALUES (?, ?,?, ?, ?,?,?,?)";
         if ($statement = $this->conn->prepare($sql) ) {
             $salt = bin2hex(random_bytes(16));
             $password_with_salt = $password.$salt;
             $hashed_password = password_hash($password_with_salt, PASSWORD_DEFAULT);
 
 
-            $statement->bind_param("ssssss",$nome,$cognome,$username,$email,$hashed_password,$salt);
+            $statement->bind_param("sssssssss",$nome,$cognome,$email,$hashed_password,$salt,$p_iva,$telefono,$indirizzo,$nomeAzienda);
             $statement->execute();
             echo "TOOP";
         } else {
@@ -46,28 +46,29 @@ class Data_Manager {
 
    
 
-    public function getPass($username,$password) {
+    public function getPass($p_Iva,$password) {
         
         $salt="";
         $id_utente="";
        
 
-        $sql = "SELECT id_utente, username, password, salt FROM utente WHERE username = ?";
+        $sql = "SELECT P_IVA, password, salt,nomeAzienda FROM utente WHERE P_IVA = ?";
         if ($statement = $this->conn->prepare($sql) ) {
-            $statement->bind_param("s",$username);
+            $statement->bind_param("s",$p_Iva);
             $statement->execute();
             
         } else {
             echo "Errore: non è possibile eseguire la query: $sql.".$this->conn->error;
         }
 
-        $statement->bind_result($id_utente,$username,$password,$salt);
+        $statement->bind_result($p_Iva,$password,$salt,$nomeAzienda);
         while ($statement->fetch()) {
             // Creare un array associativo con i risultati
                 $row = array(
-                    'username' => $username,
+                    'p_Iva' => $p_Iva,
                     'password' => $password,
-                    'salt' => $salt
+                    'salt' => $salt,
+                    'nomeAzienda' => $nomeAzienda
         
                 );
                 // Aggiungere l'array alla lista dei risultati
