@@ -2,7 +2,7 @@
 
 
 <script>
-setTitolo('Registrazione');
+setTitolo('Gestione');
 
 </script>
 
@@ -10,7 +10,7 @@ setTitolo('Registrazione');
 
   <div class=" container mt-5 ">
     <div class="row justify-content-center">
-      <div class="col-md-8 transparent-bg"><div class="nomeForm">HOME</div>
+      <div class="col-md-8 transparent-bg"><div class="nomeForm">GESIONE</div>
         
           <div class="row justify-content-center">
               

@@ -32,14 +32,18 @@
                     <a href="home.php"><div class="logo"><img href="home.php" src="image/logo.png"></div></a>
                         <ul class="links scritte">
                             <li><a href="home.php">Home</a></li>
-                            <li><a href="regolamento.php">Regolamento</a></li>
-                            <li><a href="iscrizione.php">Iscriviti</a></li>
-                            <li><a href="classifiche.php">Classifiche</a></li>
-                        
-                        <?php 
+                            <?php 
                             
-                                session_start();
+                            session_start();
+                          
+                        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                               
+                                
+                                echo"<li><a href='gestione.php'>Gestione</a></li>";
+                                
+                            }else{echo"<li><a href='info.php'>gestiInfoone</a></li>";
+                            } 
+                            
                             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                     // L'utente è autenticato
                                    // echo"DENTROOOOOO";
@@ -55,10 +59,17 @@
 
                     <div class="dropdown_menu scritte">
                             <li><a href="home.php">Home</a></li>
-                            <li><a href="regolamento">Regolamento</a></li>
-                            <li><a href="iscrizione.php">Iscriviti</a></li>
-                            <li><a href="classifiche.php">Classifiche</a></li>
                             <?php 
+                            session_start();
+                          
+                            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                                  
+                                    
+                                    echo"<li><a href='gestione.php'>Gestione</a></li>";
+                                    
+                                }else{echo"<li><a href='info.php'>Info</a></li>";
+                                } 
+
                             //session_start();
                             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                     // L'utente è autenticato

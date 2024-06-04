@@ -49,7 +49,7 @@ class Data_Manager {
     public function getPass($p_Iva,$password) {
         
         $salt="";
-        $id_utente="";
+        $nomeAzienda="";
        
 
         $sql = "SELECT P_IVA, password, salt,nomeAzienda FROM utente WHERE P_IVA = ?";
