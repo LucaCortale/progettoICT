@@ -105,6 +105,74 @@ class Data_Manager {
         }
     }
 
+    public function getAllEdifici($p_Iva) {
+        
+        $id_edificio="";
+        $nomeEdificio="";
+        $indirizzo="";
+        $tipoAnimale="";
+        $temperaturaLimite="";
+        $umiditàLimite="";
+        $result_array = array();
+
+        $sql = "SELECT id_edificio,nome_edificio,indirizzo,tipo_animale,temperaturaLimite,umiditàLimite FROM edificio WHERE P_IVA = ?";
+        if ($statement = $this->conn->prepare($sql) ) {
+            $statement->bind_param("s",$p_Iva);
+            $statement->execute();
+            
+        } else {
+            echo "Errore: non è possibile eseguire la query: $sql.".$this->conn->error;
+        }
+
+        $statement->bind_result($id_edificio,$nomeEdificio,$indirizzo,$tipoAnimale,$temperaturaLimite,$umiditàLimite);
+        while ($statement->fetch()) {
+            // Creare un array associativo con i risultati
+                $row = array(
+                    'idEdificio' =>$id_edificio,
+                    'nomeEdificio' => $nomeEdificio,
+                    'indirizzo' => $indirizzo,
+                    'tipoAnimale' => $tipoAnimale,
+                    'temperatura' =>$temperaturaLimite,
+                    'umidita' =>$umiditàLimite
+
+        
+                );
+                // Aggiungere l'array alla lista dei risultati
+                $result_array[] = $row;
+            }
+            $statement->close();
+            $this->closeConnection();
+        // Restituire l'array dei risultati
+      
+            $json_data = json_encode($result_array);
+            return  $json_data;
+     
+        // Combina la password con il salt memorizzato nel database
+   
+        
+    }
+
+    public function insertEdificio($nomeEdificio, $indirizzo, $tipoAnimale, $temperatura, $umidita) {
+ 
+        $sql = "INSERT INTO UTENTE (nome, cognome,email, password, salt, p_iva,telefono,indirizzo,nomeAzienda) VALUES (?, ?,?, ?, ?)";
+        if ($statement = $this->conn->prepare($sql) ) {
+       
+
+            $statement->bind_param("sssii",$nomeEdificio,$indirizzo,$tipoAnimale,$temperatura,$umidita);
+            $statement->execute();
+            //echo "TOOP";
+        } else {
+            echo "Errore: non è possibile eseguire la query: $sql.".$this->conn->error;
+        }
+
+        $statement->close();
+        $this->conn->close();       
+
+
+
+       
+    }
+
     public function closeConnection(){
         $this->conn->close();
         

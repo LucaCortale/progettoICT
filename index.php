@@ -41,14 +41,14 @@
                                 
                                 echo"<li><a href='gestione.php'>Gestione</a></li>";
                                 
-                            }else{echo"<li><a href='info.php'>gestiInfoone</a></li>";
+                            }else{echo"<li><a href='info.php'>Info</a></li>";
                             } 
                             
                             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                     // L'utente è autenticato
                                    // echo"DENTROOOOOO";
                                     $nomeAzienda = $_SESSION['nomeAzienda'];
-                                    echo"<li><a href='logout.php'>logout</a></li></ul><a class=' btn btn-primary action_btn scritte' id='action_btn' disabled> $nomeAzienda </a>";
+                                    echo"<li><a href='logout.php'>logout</a></li></ul><a href='myFarm.php' class=' btn btn-primary action_btn scritte' id='action_btn' > $nomeAzienda </a>";
                                     
                                 }else{echo"</ul><a href='registrazione.php' class='btn btn-primary action_btn scritte' id='action_btn'>Login/Registrati</a>";
                                 } ?>
@@ -75,7 +75,7 @@
                                     // L'utente è autenticato
                                     //echo"DENTROOOOOO";
                                     $nomeAzienda = $_SESSION['nomeAzienda'];
-                                    echo"<li>".$nomeAzienda."</li>";
+                                    echo"<li href='myFarm.php'>".$nomeAzienda."</li>";
                                     
                                 }else{echo"<li> <a href='registrazione.php' >Login/Registrati </a></li>";
                                 } ?>
