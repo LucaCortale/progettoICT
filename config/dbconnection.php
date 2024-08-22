@@ -1,7 +1,7 @@
 <?php
 class DB_Connection {
  
-    private $servername = "127.0.0.1";
+    private $servername = "127.0.0.1:3308";
     private $username = "root";
     private $password = "";
     private $dbname = "progettoict";

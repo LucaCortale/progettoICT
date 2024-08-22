@@ -362,4 +362,19 @@ color: white;
     }
 
 
-  
+    .titolo {
+        font-weight: bold; /* Grassetto */
+        font-style: italic;/* Corsivo */
+        font-size: 24px; /* Dimensione del titolo */
+        font-family: Georgia, serif;
+        font-variant: small-caps; 
+    }
+    
+    /* Classe per il sottotitolo */
+    .sottotitolo {
+        font-weight: bold; /* Grassetto */
+        /* Corsivo */
+        font-size: 18px; /* Dimensione del sottotitolo */
+        font-family: Georgia, serif;
+        font-variant: small-caps; 
+    }
