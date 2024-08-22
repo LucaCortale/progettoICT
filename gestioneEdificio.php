@@ -48,21 +48,26 @@ $(document).ready(function () {
     var temperaturaRilevata = $('#temperaturaRilevata').val();
     var umiditaRilevata = $('#umiditaRilevata').val();
 
-    //console.log(temperatura,umidita,temperaturaRilevata,umiditaRilevata);
+    console.log(temperatura,umidita,temperaturaRilevata,umiditaRilevata);
    
     function coloraCampo(valore, limite, elemento) {
-        if (valore >= limite+2) {
+        if (valore > limite+2) {
             elemento.style.color = 'white';
-            elemento.style.backgroundColor = 'rgba(194, 18, 18, 0.8)';
-        } else if (valore <= limite-2){
+            console.log('colora rosso');
+            elemento.style.backgroundColor = 'rgba(194, 18, 18, 0.8)'; //colora rosso
+        } if (valore < limite-2){
             elemento.style.color = 'white';
-            elemento.style.backgroundColor = 'rgb(50, 181, 70,0.8)';
-        }else{
+            elemento.style.backgroundColor = 'rgb(50, 181, 70,0.8)'; //colora verde
+            console.log('colora verde');
+        }else if(valore <= limite+2 && valore >= limite-2){
             elemento.style.color = 'white';
-            elemento.style.backgroundColor = 'rgba(190, 160, 14, 0.8)';
+            elemento.style.backgroundColor = 'rgba(190, 160, 14, 0.8)';//colora giallo
+            console.log('colora giallo');
         }
+        // console.log(valore);
+        // console.log(limite);
     }
-
+    
     // Applica la colorazione ai campi
     coloraCampo(temperaturaRilevata, temperatura, document.getElementById('temperaturaRilevata'));
     coloraCampo(umiditaRilevata, umidita, document.getElementById('umiditaRilevata'));
@@ -83,9 +88,6 @@ $(document).ready(function () {
       <div class="col-md-12 transparent-bg"><div class="nomeForm titolo">GESTIONE EDIFICIO</div>
           <p style="text-align: center;">In questa sezione è possibile monitorare i valori rilevati nelle stalle</p>
           
-            
-          
-
             <?php
             $p_IVA ='';
             $p_IVA = $_SESSION['P_Iva'];
@@ -139,7 +141,7 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label type="text" style="text-align: center;" id="temperatura" name="temperatura" class="form-control" placeholder="temperatura"><?php echo$edificio[0]['temperatura']?></label>
+                        <input type="text" style="text-align: center;" id="temperatura" name="temperatura" class="form-control" placeholder="temperatura" value=<?php echo$edificio[0]['temperatura'] ?>></input>
                     </div>
                 </div>
         
@@ -150,7 +152,7 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label type="text" style="text-align: center;" id="umidita" name="umidita" class="form-control" placeholder="umidita"><?php echo$edificio[0]['umidita']?></label>
+                        <input type="text" style="text-align: center;" id="umidita" name="umidita" class="form-control" placeholder="umidita" value=<?php echo$edificio[0]['umidita'] ?>></input>
                     </div>
                 </div>
             </div>
@@ -162,7 +164,19 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label type="text" style="text-align: center;" id="temperaturaRilevata" name="temperaturaRilevata" class="form-control" placeholder="temperaturaRilevata"><?php echo$edificio[0]['temperatura']?></label>
+                    <?php //echo$edificio[0]['temperatura']
+                            //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                $temperatura = isset($_POST['temperatura']) ? $_POST['temperatura'] : 0;
+                            
+                                
+                            //}
+                            ?>
+                            <input type="text" style="text-align: center;" id="temperaturaRilevata" name="temperaturaRilevata" class="form-control" placeholder="temperaturaRilevata" value=<?php echo$temperatura ?>>
+                            <?php //echo$edificio[0]['temperatura']
+                            
+                            //echo$temperatura;
+                            ?>
+                        </input>
                     </div>
                 </div>
                             <!-- ROBA ARDUINO!!!!!!!!!!-->
@@ -173,7 +187,20 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label type="text" style="text-align: center;" id="umiditaRilevata" name="umiditaRilevata" class="form-control" placeholder="umiditaRilevata"><?php echo$edificio[0]['umidita']?></label>
+                    <?php //echo$edificio[0]['temperatura']
+                            //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                
+                                $humidity = isset($_POST['humidity']) ? $_POST['humidity'] : 0;
+                               
+                            //}
+                            
+                            ?>
+                        <input type="text" style="text-align: center;" id="umiditaRilevata" name="umiditaRilevata" class="form-control" placeholder="umiditaRilevata" value=<?php echo$humidity ?>>
+                            <?php //echo$edificio[0]['temperatura']
+                            
+                            //echo$humidity;
+                            ?>
+                        </input>
                     </div>
                 </div>
             </div>
@@ -190,7 +217,7 @@ $(document).ready(function () {
                         //LETTURA STATO ARDUINO
 
 
-                        $stato = false;
+                        $stato = true;
                         if($stato == true){
                             $stato = 'ATTIVO'; 
                         }else{
@@ -198,7 +225,7 @@ $(document).ready(function () {
                         }
                         
                         ?>
-                    <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola"value=<?php echo$stato ?>>
+                    <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo$stato ?>>
                         <?php echo$stato?>
                      </button>
                 </div>
@@ -218,6 +245,7 @@ $(document).ready(function () {
                         }
                         
                         echo$stato?>
+
                      </button>
                 </div>
             </div>
@@ -232,14 +260,19 @@ $(document).ready(function () {
                 <div class="form-group">
                 <?php
                         //LETTURA STATO ARDUINO
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                            $temperatura = isset($_POST['temperatura']) ? $_POST['temperatura'] : 0;
-                        
-                            $humidity = isset($_POST['humidity']) ? $_POST['humidity'] : 0;
-                           
-                        }
-                        // Verifica che i dati siano stati ricevuti
-                        
+                       function invia_comando($comando) {
+                        global $arduino_ip, $port;
+                        $url = 'http://$arduino_ip:$port/$comando';
+
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+                        curl_close($ch);
+
+                        return $response;
+                    }
+
 
                         $stato = false;
                         if($stato == true){
@@ -256,7 +289,7 @@ $(document).ready(function () {
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <button type="button" style="text-align: center; width: 200px;" id="btnPompa" name="btnPompa" class="btn btn-primary action_btn scritte" placeholder="btnPompa">
+                    <button type="button" style="text-align: center; width: 200px;" id="btnPompa" name="btnPompa" class="btn btn-primary action_btn scritte" placeholder="btnPompa" value=<?php echo$stato ?>>
                         <?php
                         //LETTURA STATO ARDUINO
 
