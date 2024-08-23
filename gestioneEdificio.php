@@ -170,6 +170,7 @@ $(document).ready(function () {
                         <label for="temperaturaRilevata">Temperatura Rilevata</label>
                     </div>
                 </div>
+                <!-- Stampa temperatura da arduino-->
                 <div class="col-md-3">
                     <div class="form-group">
                             <input type="text" style="text-align: center;" id="temperaturaRilevata" name="temperaturaRilevata" class="form-control" placeholder="temperaturaRilevata" value=<?php echo $ultimaTemp ?>>
@@ -177,7 +178,7 @@ $(document).ready(function () {
                         </input>
                     </div>
                 </div>
-                            <!-- ROBA ARDUINO!!!!!!!!!!-->
+                <!-- Stampa umidità da arduino-->
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="umiditaRilevata">Umidità Rilevata</label>
@@ -199,39 +200,31 @@ $(document).ready(function () {
             </div>
             <div class="col-md-3">
                 <div class="form-group">
+            <!-- Stampa stato ventola da arduino-->
                 <?php
-                        //LETTURA STATO ARDUINO
-
-
-                        $stato = true;
-                        if($stato == true){
+                    if($ultimoStato == 1){
                             $stato = 'ATTIVO'; 
-                        }else{
+                    }else{
                             $stato = 'DISATTIVO';
-                        }
-                        
-                        ?>
+                    }                       
+                ?>
                     <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo$stato ?>>
-                        <?php echo$stato?>
+                    <?php echo$stato ?>
                      </button>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
+            <!-- Stampa stato ventola da arduino-->
                         <?php
-                        //LETTURA STATO ARDUINO
-
-
-                        $stato = true;
-                        if($stato == true){
+                            if($ultimoStato == 1){
                             $stato = 'ATTIVO'; 
-                        }else{
+                            }else{
                             $stato = 'DISATTIVO';
-                        }
-                        
-                        echo$stato?>
-
+                            }
+                        echo $stato
+                        ?>
                      </button>
                 </div>
             </div>
