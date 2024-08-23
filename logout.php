@@ -1,6 +1,8 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
   
 // Distruggi tutte le variabili di sessione
 //session_destroy();

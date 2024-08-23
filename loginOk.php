@@ -6,7 +6,9 @@ require_once('config/dataManager.php');
 $manager = new Data_Manager();
 
 
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
   
 $_SESSION['pagina_di_provenienza'] = $_SERVER['REQUEST_URI'];
 

@@ -18,13 +18,15 @@ $(document).ready(function () {
     function cambiaBtn(valore, elemento) {
         if (valore == 'ATTIVO') {
             elemento.innerText = 'DISATTIVARE';
+            //elemento.value = 'DISATTIVO';
         }else{
             elemento.innerText = 'ATTIVARE';
+            //elemento.value = 'ATTIVO';
         }
     }  
     cambiaBtn(statoVentola,document.getElementById('btnVentola'));
     cambiaBtn(statoVentola,document.getElementById('btnPompa'));
-
+    console.log(statoPompa,statoVentola)
 
     function coloraLabel(valore, elemento) {
         if (valore == 'ATTIVO') {
@@ -233,18 +235,18 @@ $(document).ready(function () {
             <div class="col-md-3">
                 <div class="form-group">
                     <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
-                        <?php
+                        <!-- <?php
                         //LETTURA STATO ARDUINO
 
 
-                        $stato = true;
-                        if($stato == true){
-                            $stato = 'ATTIVO'; 
-                        }else{
-                            $stato = 'DISATTIVO';
-                        }
+                        // $stato = true;
+                        // if($stato == true){
+                        //     $stato = 'ATTIVO'; 
+                        // }else{
+                        //     $stato = 'DISATTIVO';
+                        // }
                         
-                        echo$stato?>
+                        // echo$stato?> -->
 
                      </button>
                 </div>
@@ -282,7 +284,7 @@ $(document).ready(function () {
                         }
                         
                         ?>
-                    <button type="label" style="text-align: center;" id="statoPompa" name="statoPompa" class="form-control" placeholder="statoPompa"value=<?php echo$stato ?>>
+                    <button type="text" style="text-align: center;" id="statoPompa" name="statoPompa" class="form-control" placeholder="statoPompa"value=<?php echo$stato ?>>
                         <?php echo$stato?>
                      </button>
                 </div>
@@ -307,8 +309,8 @@ $(document).ready(function () {
             </div>
         </div>
         
-            <button type="button" class=" btn btn-primary action_btn scritte" data-toggle="" data-target="#">
-        Aggiungi Edificio
+        <button type="button" class=" btn btn-primary action_btn scritte" data-toggle="" data-target="#">
+            Aggiungi Edificio
         </button>
         </div>
         

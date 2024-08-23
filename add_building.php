@@ -8,7 +8,9 @@ error_reporting(E_ALL);
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     $nomeEdificio = $_POST['nomeEdificio'];
     $indirizzo = $_POST['indirizzo'];
     $tipoAnimale = $_POST['tipoAnimale'];
