@@ -4,6 +4,14 @@ require_once('config/dataManager.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+$hum = file('dati_sensore_umidita.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$temp = file('dati_sensore_temperatura.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$statoFan = file('dati_stato_ventola.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+$ultimaHum = end($hum);
+$ultimaTemp = end($temp);
+$ultimoStato = end($statoFan);
+
  ?>
 
 
@@ -164,18 +172,8 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                    <?php //echo$edificio[0]['temperatura']
-                            //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                $temperatura = isset($_POST['temperatura']) ? $_POST['temperatura'] : 0;
-                            
-                                
-                            //}
-                            ?>
-                            <input type="text" style="text-align: center;" id="temperaturaRilevata" name="temperaturaRilevata" class="form-control" placeholder="temperaturaRilevata" value=<?php echo$temperatura ?>>
-                            <?php //echo$edificio[0]['temperatura']
-                            
-                            //echo$temperatura;
-                            ?>
+                            <input type="text" style="text-align: center;" id="temperaturaRilevata" name="temperaturaRilevata" class="form-control" placeholder="temperaturaRilevata" value=<?php echo $ultimaTemp ?>>
+
                         </input>
                     </div>
                 </div>
@@ -187,19 +185,7 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                    <?php //echo$edificio[0]['temperatura']
-                            //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                
-                                $humidity = isset($_POST['humidity']) ? $_POST['humidity'] : 0;
-                               
-                            //}
-                            
-                            ?>
-                        <input type="text" style="text-align: center;" id="umiditaRilevata" name="umiditaRilevata" class="form-control" placeholder="umiditaRilevata" value=<?php echo$humidity ?>>
-                            <?php //echo$edificio[0]['temperatura']
-                            
-                            //echo$humidity;
-                            ?>
+                        <input type="text" style="text-align: center;" id="umiditaRilevata" name="umiditaRilevata" class="form-control" placeholder="umiditaRilevata" value=<?php echo $ultimaHum ?>>
                         </input>
                     </div>
                 </div>
