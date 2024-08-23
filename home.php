@@ -2,7 +2,7 @@
 
 
 <script>
-setTitolo('Registrazione');
+setTitolo('Home');
 
 </script>
 
