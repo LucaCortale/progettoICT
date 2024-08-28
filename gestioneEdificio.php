@@ -4,13 +4,13 @@ require_once('config/dataManager.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$hum = file('dati_sensore_umidita.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$temp = file('dati_sensore_temperatura.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$statoFan = file('dati_stato_ventola.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+//CODICE_ARDUINO$hum = file('dati_sensore_umidita.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+//CODICE_ARDUINO$temp = file('dati_sensore_temperatura.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+//CODICE_ARDUINO$statoFan = file('dati_stato_ventola.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-$ultimaHum = end($hum);
-$ultimaTemp = end($temp);
-$ultimoStato = end($statoFan);
+//CODICE_ARDUINO$ultimaHum = end($hum);
+//CODICE_ARDUINO$ultimaTemp = end($temp);
+//CODICE_ARDUINO$ultimoStato = end($statoFan);
 
  ?>
 
@@ -203,12 +203,14 @@ $(document).ready(function () {
             <div class="col-md-3">
                 <div class="form-group">
             <!-- Stampa stato ventola da arduino-->
-                <?php
+
+                <?php $stato = true;
+                /*CODICE_ARDUINO 
                     if($ultimoStato == 1){
                             $stato = 'ATTIVO'; 
                     }else{
                             $stato = 'DISATTIVO';
-                    }                       
+                    }             */          
                 ?>
                     <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo$stato ?>>
                     <?php echo$stato ?>
@@ -218,31 +220,16 @@ $(document).ready(function () {
             <div class="col-md-3">
                 <div class="form-group">
                     <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
-<<<<<<< HEAD
-                        <!-- <?php
-                        //LETTURA STATO ARDUINO
-
-
-                        // $stato = true;
-                        // if($stato == true){
-                        //     $stato = 'ATTIVO'; 
-                        // }else{
-                        //     $stato = 'DISATTIVO';
-                        // }
-                        
-                        // echo$stato?> -->
-
-=======
             <!-- Stampa stato ventola da arduino-->
                         <?php
+                        /*CODICE_ARDUINO 
                             if($ultimoStato == 1){
                             $stato = 'ATTIVO'; 
                             }else{
                             $stato = 'DISATTIVO';
                             }
-                        echo $stato
+                        echo $stato*/
                         ?>
->>>>>>> ade0d65497385c941da1cbc068f62a2160180ac8
                      </button>
                 </div>
             </div>
