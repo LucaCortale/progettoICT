@@ -29,7 +29,7 @@
 body{
     height: 100vh;
     background-color: whitesmoke;
-    background-image: url("image/stalla.jpg");
+    background-image: url("image/stalla3.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -76,7 +76,7 @@ header{
     height: 160px; /* Imposta l'altezza dell'immagine in base al rapporto d'aspetto */
     display: block; /* Imposta l'immagine come elemento blocco */
      /* Centra l'immagine all'interno del div */
-    margin-top: 15px;
+    margin-top: 50px;
     padding-top: 20px;
 }
 
@@ -87,6 +87,11 @@ header{
     gap: 2rem;
     text-decoration: none;
     margin: 5px;
+}
+
+.navbarprova .links a:hover {
+    color: #000000; /* Colore del link quando ci passi sopra con il mouse */
+    
 }
 
 .navbarprova .toggle_btn{
@@ -383,4 +388,62 @@ color: white;
         font-variant: small-caps; 
         
 
+    }
+
+    .transparent-bg-chiSiamo {
+        background-color: rgba(255, 255, 255, 0.8); /* Imposta un colore di sfondo bianco con opacità del 80% */
+        padding: 20px; /* Aggiunge spazio intorno al riquadro */
+        border-radius: 10px; /* Aggiunge bordi arrotondati */
+        min-width: 1500px;
+    }
+
+    .team-row {
+        display: flex;
+        justify-content: space-around; /* Distribuisce gli elementi orizzontalmente */
+        flex-wrap: wrap; /* Permette il wrapping su più righe se necessario */
+        max-width: 1500px;
+        margin: 0 auto 30px; /* Centratura e spaziatura inferiore */
+    }
+
+    .employee {
+        display: flex;
+        justify-content: flex-start; /* Allinea il contenuto a sinistra */
+        align-items: center; /* Allinea verticalmente il contenuto */
+        margin-bottom: 30px;
+        padding: 20px;
+        width: 45%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        min-width: 700px;
+        margin: 0 auto 0px;
+    }
+    
+    .employee img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        margin-right: 20px;
+        object-fit: cover;
+    }
+    
+    .employee-info {
+        text-align: left;
+    }
+    
+    .employee-info h2 {
+        font-size: 24px;
+        margin: 0;
+    }
+    
+    .employee-info h3 {
+        font-size: 18px;
+        color: #777;
+        margin: 5px 0 15px;
+    }
+    
+    .employee-info p {
+        font-size: 16px;
+        color: #555;
+    }
+    .box{
+        margin: 10px;
     }
