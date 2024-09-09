@@ -42,7 +42,7 @@ unset($_SESSION['pagina_di_provenienza']);
         setTitolo('Login');
 </script>
 
-        <body >
+        <body class="bodyPagine">
         <div class=" container mt-5 ">
           <div class="row justify-content-center">
             <div class="col-md-8 transparent-bg"><div class="nomeForm scritte2"><b>LOGIN</b></div>

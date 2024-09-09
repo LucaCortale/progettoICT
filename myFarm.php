@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 
 <script>
-setTitolo('Registrazione');
+setTitolo('My Farm');
 
 //per modal di modifica edfici
 $(document).ready(function () {      
@@ -196,7 +196,7 @@ $(document).ready(function () {
 
 
 
-<body>
+<body class="bodyPagine">
 
   <div class=" container mt-5 ">
     <div class="row justify-content-center">
@@ -283,15 +283,15 @@ $(document).ready(function () {
                             <input type="text" class="form-control" id="indirizzo" name="indirizzo" required>
                         </div>
                         <div class="form-group">
-                            <label for="tipoAnimale">Tipo Animale</label>
+                            <label for="tipoAnimale" >Tipo Animale</label>
                             <input type="text" class="form-control" id="tipoAnimale" name="tipoAnimale" required>
                         </div>
                         <div class="form-group">
-                            <label for="temperatura">Temperatura</label>
-                            <input type="number" class="form-control" id="temperatura" name="temperatura" required>
+                            <label for="temperatura" >Temperatura</label>
+                            <input type="number" class="form-control" id="temperatura" name="temperatura"  required>
                         </div>
                         <div class="form-group">
-                            <label for="umidita">Umidità</label>
+                            <label for="umidita" readonly>Umidità</label>
                             <input type="number" class="form-control" id="umidita" name="umidita" required>
                         </div>
                     </div>
@@ -335,11 +335,11 @@ $(document).ready(function () {
                         </div>
                         <div class="form-group">
                             <label for="temperatura">Temperatura</label>
-                            <input type="number" class="form-control" id="temperaturaModifica" name="temperaturaModifica" required>
+                            <input type="number" class="form-control" id="temperaturaModifica" name="temperaturaModifica" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="umidita">Umidità</label>
-                            <input type="number" class="form-control" id="umiditaModifica" name="umiditaModifica" required>
+                            <input type="number" class="form-control" id="umiditaModifica" name="umiditaModifica" readonly required>
                         </div>
                     </div>
                     <div class="modal-footer">

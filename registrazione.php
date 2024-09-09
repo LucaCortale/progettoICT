@@ -44,7 +44,7 @@ function validaForm(event) {
 
 </script>
 
-<body>
+<body class="bodyPagine">
 
   <div class=" container mt-5 ">
     <div class="row justify-content-center">

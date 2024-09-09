@@ -13,14 +13,16 @@ class Data_Manager {
     // Metodo per inserire un nuovo utente nel database
     public function insertUser($nome,$cognome,$email,$password,$p_iva,$telefono,$indirizzo,$nomeAzienda) {
         
-        $sql = "INSERT INTO UTENTE (nome, cognome,email, password, salt, p_iva,telefono,indirizzo,nomeAzienda) VALUES (?, ?,?, ?, ?,?,?,?,?)";
+        $sql = "INSERT INTO UTENTE (nome, cognome,email, password, salt, p_iva,telefono,indirizzo,nomeAzienda) 
+        VALUES (?, ?,?, ?, ?,?,?,?,?)";
         if ($statement = $this->conn->prepare($sql) ) {
             $salt = bin2hex(random_bytes(16));
             $password_with_salt = $password.$salt;
             $hashed_password = password_hash($password_with_salt, PASSWORD_DEFAULT);
 
 
-            $statement->bind_param("sssssssss",$nome,$cognome,$email,$hashed_password,$salt,$p_iva,$telefono,$indirizzo,$nomeAzienda);
+            $statement->bind_param("sssssssss",$nome,$cognome,$email,$hashed_password,$salt,$p_iva,$telefono,
+            $indirizzo,$nomeAzienda);
             $statement->execute();
             echo "TOOP";
         } else {
@@ -105,8 +107,7 @@ class Data_Manager {
         }
     }
 
-    public function getAllEdifici($p_Iva) {
-        
+    public function getAllEdifici($p_Iva) { 
         $id_edificio="";
         $nomeEdificio="";
         $indirizzo="";
@@ -114,16 +115,13 @@ class Data_Manager {
         $temperaturaLimite="";
         $umiditàLimite="";
         $result_array = array();
-
         $sql = "SELECT id_edificio,nome_edificio,indirizzo,tipo_animale,temperaturaLimite,umiditàLimite FROM edificio WHERE P_IVA = ?";
         if ($statement = $this->conn->prepare($sql) ) {
             $statement->bind_param("s",$p_Iva);
-            $statement->execute();
-            
+            $statement->execute();   
         } else {
             echo "Errore: non è possibile eseguire la query: $sql.".$this->conn->error;
         }
-
         $statement->bind_result($id_edificio,$nomeEdificio,$indirizzo,$tipoAnimale,$temperaturaLimite,$umiditàLimite);
         while ($statement->fetch()) {
             // Creare un array associativo con i risultati
@@ -134,8 +132,6 @@ class Data_Manager {
                     'tipoAnimale' => $tipoAnimale,
                     'temperatura' =>$temperaturaLimite,
                     'umidita' =>$umiditàLimite
-
-        
                 );
                 // Aggiungere l'array alla lista dei risultati
                 $result_array[] = $row;
@@ -143,13 +139,8 @@ class Data_Manager {
             $statement->close();
             $this->closeConnection();
         // Restituire l'array dei risultati
-      
             $json_data = json_encode($result_array);
-            return  $json_data;
-     
-        // Combina la password con il salt memorizzato nel database
-   
-        
+            return  $json_data;  
     }
 
     public function getEdificio($id) {

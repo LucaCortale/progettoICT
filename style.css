@@ -26,10 +26,17 @@
     font-variant: small-caps;  
 }
 
-body{
+.bodyPagine{
     height: 100vh;
     background-color: whitesmoke;
-    background-image: url("image/stalla3.jpg");
+    background-image: url("image/stalla.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.bodyHome{
+    height: 100vh;
+    background-color: whitesmoke;
+    background-image: url("image/home.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -379,11 +386,24 @@ color: white;
         font-variant: small-caps; 
     }
     
+    .titoloHome {
+        position: absolute;
+        bottom: 20px;
+        
+        font-size: 48px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        z-index: 10;
+        width: 40%;
+        left: 50%;  
+        transform: translateX(-70%); 
+    }
+
     /* Classe per il sottotitolo */
     .sottotitolo {
-        font-weight: bold; /* Grassetto */
-        /* Corsivo */
-        font-size: 18px; /* Dimensione del sottotitolo */
+        font-weight: bold;
+        font-size: 18px; 
         font-family: Georgia, serif;
         font-variant: small-caps; 
         

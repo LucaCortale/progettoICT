@@ -6,7 +6,7 @@ setTitolo('Chi siamo');
 
 </script>
 
-<body>
+<body class="bodyPagine">
 
   <div class=" container mt-5 ">
     <div class="row justify-content-center">
@@ -17,10 +17,11 @@ setTitolo('Chi siamo');
             <div><p class="nomeForm">IL NOSTRO TEAM</p>
             <div class="team-row">
               <div class="employee">
-                  <img style='width: 100px; height: auto;'  src="image/cortaleLuca.jpg" alt="Foto ">
+                  <img style='width: 100px; height: auto;'  src="image/fioreNicoloAntonio.jpg" alt="Foto ">
                   <div class="employee-info">
                       <h2>Nicolo Antonio Fiore</h2>
-                      <h3>Developer</h3>
+                      <h3>Data analyst</h3>
+                      <p>Appassionato di analisi dati, mi dedico a sviluppare soluzioni pratiche che migliorano la vita nelle aziende agricole.</p>
                   </div>
                 </div>
               <div class="employee">
