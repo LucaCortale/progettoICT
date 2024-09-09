@@ -1,21 +1,33 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
 <?php require 'index.php';
 
 require_once('config/dataManager.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-//CODICE_ARDUINO$hum = file('dati_sensore_umidita.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-//CODICE_ARDUINO$temp = file('dati_sensore_temperatura.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-//CODICE_ARDUINO$statoFan = file('dati_stato_ventola.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+//CODICE_ARDUINO
+$date = date("M_Y");
 
-//CODICE_ARDUINO$ultimaHum = end($hum);
-//CODICE_ARDUINO$ultimaTemp = end($temp);
-//CODICE_ARDUINO$ultimoStato = end($statoFan);
+$hum = file("dati_sensore_umidita_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$temp = file("dati_sensore_temperatura_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$Fan = file("dati_stato_ventola_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$Pump = file("dati_stato_pompa_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+$ultimaHum = end($hum);
+$ultimaTemp = end($temp);
+$ultimoStatoFan = end($Fan);
+$ultimoStatoPump = end($Pump);
 
  ?>
 
 
 <script>
+    
 setTitolo('Gestione Edificio');
 
 $(document).ready(function () {  
@@ -204,34 +216,24 @@ $(document).ready(function () {
                 <div class="form-group">
             <!-- Stampa stato ventola da arduino-->
 
-                <?php $stato = true;
-                /*CODICE_ARDUINO 
-                    if($ultimoStato == 1){
-                            $stato = 'ATTIVO'; 
+                <?php
+                //CODICE_ARDUINO 
+                    if($ultimoStatoFan == 1){
+                            $statoFan = 'ATTIVO'; 
                     }else{
-                            $stato = 'DISATTIVO';
-                    }             */          
+                            $statoFan = 'DISATTIVO';
+                    }                      
                 ?>
-                    <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo$stato ?>>
-                    <?php echo$stato ?>
+                    <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo $statoFan ?>>
+                    <?php echo $statoFan ?>
                      </button>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="form-group">
-                    <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
-            <!-- Stampa stato ventola da arduino-->
-                        <?php
-                        /*CODICE_ARDUINO 
-                            if($ultimoStato == 1){
-                            $stato = 'ATTIVO'; 
-                            }else{
-                            $stato = 'DISATTIVO';
-                            }
-                        echo $stato*/
-                        ?>
-                     </button>
-                </div>
+                    <div class="form-group">
+                        <button type="submit" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
+                        </button>
+                    </div>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -242,6 +244,16 @@ $(document).ready(function () {
             </div>
             <div class="col-md-3">
                 <div class="form-group">
+        <!-- Stampa stato ventola da arduino-->
+
+                <?php
+                //CODICE_ARDUINO 
+                    if($ultimoStatoPump == 1){
+                            $statoPump = 'ATTIVO'; 
+                    }else{
+                            $statoPump = 'DISATTIVO';
+                    }                      
+                ?>
                 <?php
                         //LETTURA STATO ARDUINO
                        function invia_comando($comando) {
@@ -256,36 +268,17 @@ $(document).ready(function () {
 
                         return $response;
                     }
-
-
-                        $stato = false;
-                        if($stato == true){
-                            $stato = 'ATTIVO'; 
-                        }else{
-                            $stato = 'DISATTIVO';
-                        }
                         
                         ?>
-                    <button type="text" style="text-align: center;" id="statoPompa" name="statoPompa" class="form-control" placeholder="statoPompa"value=<?php echo$stato ?>>
-                        <?php echo$stato?>
+                    <button type="text" style="text-align: center;" id="statoPompa" name="statoPompa" class="form-control" placeholder="statoPompa"value=<?php echo $statoPump ?>>
+                        <?php echo $statoPump ?>
                      </button>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <button type="button" style="text-align: center; width: 200px;" id="btnPompa" name="btnPompa" class="btn btn-primary action_btn scritte" placeholder="btnPompa" value=<?php echo$stato ?>>
-                        <?php
-                        //LETTURA STATO ARDUINO
-
-
-                        $stato = true;
-                        if($stato == true){
-                            $stato = 'ATTIVO'; 
-                        }else{
-                            $stato = 'DISATTIVO';
-                        }
-                        
-                        echo$stato?>
+                    <button type="button" style="text-align: center; width: 200px;" id="btnPompa" name="btnPompa" class="btn btn-primary action_btn scritte" placeholder="btnPompa" value=<?php echo$statoPump ?>>
+                    <?php echo $statoPump ?>
                      </button>
                 </div>
             </div>
