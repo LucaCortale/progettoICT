@@ -3,7 +3,7 @@
 
   
 
-if(isset($_SESSION['pagina_di_provenienza']) && $_SESSION['pagina_di_provenienza'] === "/progettoICT/LoginOk.php") {
+if(isset($_SESSION['pagina_di_provenienza'])) {//&& $_SESSION['pagina_di_provenienza'] === "/progettoICT/LoginOk.php") {
     // La richiesta proviene dalla pagina desiderata
     echo "<script>
     $(document).ready(function(){
