@@ -21,7 +21,11 @@ setTitolo('Chi siamo');
                   <div class="employee-info">
                       <h2>Nicolo Antonio Fiore</h2>
                       <h3>Data analyst</h3>
-                      <p>Appassionato di analisi dati, mi dedico a sviluppare soluzioni pratiche che migliorano la vita nelle aziende agricole.</p>
+                      <p>Appassionato di analisi dati, mi dedico a sviluppare soluzioni pratiche che migliorano la vita nelle aziende agricole.
+                      <a href="https://www.linkedin.com/" target="_blank">
+                            <img class="logoSocial"style='width: 30px; height: auto;' src="image/linkedin.png" alt="Linkedin Logo">
+                        </a>
+                      </p>
                   </div>
                 </div>
               <div class="employee">

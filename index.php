@@ -79,7 +79,7 @@
                                     // L'utente è autenticato
                                     //echo"DENTROOOOOO";
                                     $nomeAzienda = $_SESSION['nomeAzienda'];
-                                    echo"<li href='myFarm.php'>".$nomeAzienda."</li>";
+                                    echo"<li ><a href='info.php'>".$nomeAzienda."</a></li><li><a href='logout.php'>logout</a></li>";
                                     
                                 }else{echo"<li> <a href='registrazione.php' >Login/Registrati </a></li>";
                                 } ?>
