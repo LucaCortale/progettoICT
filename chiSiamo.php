@@ -54,11 +54,15 @@ setTitolo('Chi siamo');
                 </div>
               </div>
               <div class="employee">
-                <img style='width: 100px; height: auto;'  src="image/cortaleLuca.jpg" alt="Foto ">
+                <img style='width: 100px; height: auto;'  src="image/chiapperoAlex.jpg" alt="Foto ">
                 <div class="employee-info">
                     <h2>Alex Chiappero </h2>
-                    <h3>Developer</h3>
-                    <p> </p>
+                    <h3>Esperto di dominio</h3>
+                    <p>Ingegnere gestionale cresciuto nell&#39;azienda agricola di famiglia, con l'obbiettivo di mettere a disposizione gli studi ingegneristici per la ricerca di soluzioni innovative e sostenibili .  
+                    <a href="https://www.linkedin.com/" target="_blank">
+                            <img class="logoSocial"style='width: 30px; height: auto;' src="image/linkedin.png" alt="Linkedin Logo">
+                        </a>
+                    </p>
                 </div>
               </div>
             </div>
