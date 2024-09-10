@@ -11,7 +11,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //CODICE_ARDUINO
-$date = date("M_Y");
+/* $date = date("M_Y");
 
 $hum = file("dati_sensore_umidita_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $temp = file("dati_sensore_temperatura_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -20,9 +20,12 @@ $Pump = file("dati_stato_pompa_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP
 
 $ultimaHum = end($hum);
 $ultimaTemp = end($temp);
-$ultimoStatoFan = end($Fan);
-$ultimoStatoPump = end($Pump);
-
+$ultimoStatoFan = end($Fan); 
+ $ultimoStatoPump = end($Pump); */
+ $ultimaHum = 50;
+ $ultimaTemp = 19;
+ $ultimoStatoFan = 1; 
+  $ultimoStatoPump = 0; 
  ?>
 
 
@@ -45,8 +48,8 @@ $(document).ready(function () {
         }
     }  
     cambiaBtn(statoVentola,document.getElementById('btnVentola'));
-    cambiaBtn(statoVentola,document.getElementById('btnPompa'));
-    console.log(statoPompa,statoVentola)
+    cambiaBtn(statoPompa,document.getElementById('btnPompa'));
+    //console.log(statoPompa,statoVentola)
 
     function coloraLabel(valore, elemento) {
         if (valore == 'ATTIVO') {
@@ -70,27 +73,27 @@ $(document).ready(function () {
     var temperaturaRilevata = $('#temperaturaRilevata').val();
     var umiditaRilevata = $('#umiditaRilevata').val();
 
-    console.log(temperatura,umidita,temperaturaRilevata,umiditaRilevata);
+    //console.log(temperatura,umidita,temperaturaRilevata,umiditaRilevata);
    
     function coloraCampo(valore, limite, elemento) {
         if (valore > limite+2) {
             elemento.style.color = 'white';
-            console.log('colora rosso');
+            //console.log('colora rosso');
             elemento.style.backgroundColor = 'rgba(194, 18, 18, 0.8)'; //colora rosso
         } if (valore < limite-2){
             elemento.style.color = 'white';
             elemento.style.backgroundColor = 'rgb(50, 181, 70,0.8)'; //colora verde
-            console.log('colora verde');
+            //console.log('colora verde');
         }else if(valore <= limite+2 && valore >= limite-2){
             elemento.style.color = 'white';
             elemento.style.backgroundColor = 'rgba(190, 160, 14, 0.8)';//colora giallo
-            console.log('colora giallo');
+            //console.log('colora giallo');
         }
         // console.log(valore);
         // console.log(limite);
     }
     
-    // Applica la colorazione ai campi
+    
     coloraCampo(temperaturaRilevata, temperatura, document.getElementById('temperaturaRilevata'));
     coloraCampo(umiditaRilevata, umidita, document.getElementById('umiditaRilevata'));
 
@@ -116,7 +119,7 @@ $(document).ready(function () {
             $manager = new Data_Manager();
             $id = $_POST['idEdificio'] ?? null;
             $edificio = json_decode($manager -> getEdificio($id), true);
-            echo $id."UQAAAA".$edificio[0]['nomeEdificio'];
+            
             ?>
 
         <div class="row justify-content-center">
