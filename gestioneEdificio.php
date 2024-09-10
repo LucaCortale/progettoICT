@@ -11,7 +11,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //CODICE_ARDUINO
-/* $date = date("M_Y");
+$date = date("M_Y");
 
 $hum = file("dati_sensore_umidita_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $temp = file("dati_sensore_temperatura_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -21,11 +21,7 @@ $Pump = file("dati_stato_pompa_".$date.".txt", FILE_IGNORE_NEW_LINES | FILE_SKIP
 $ultimaHum = end($hum);
 $ultimaTemp = end($temp);
 $ultimoStatoFan = end($Fan); 
- $ultimoStatoPump = end($Pump); */
- $ultimaHum = 50;
- $ultimaTemp = 19;
- $ultimoStatoFan = 1; 
-  $ultimoStatoPump = 0; 
+$ultimoStatoPump = end($Pump); 
  ?>
 
 
