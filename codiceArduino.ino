@@ -128,11 +128,7 @@ void loop() {
       checkComando = true;
     }
 
-<<<<<<< HEAD
     if((millis() - t0) > 1800000){
-=======
-    if((millis() - t0) > 1,800,000){
->>>>>>> ce891f02e961f92f90984757dec28e22f6ef1ffb
       checkComando = false;
       comando = 0;
       t0 = millis();
@@ -336,11 +332,7 @@ void loop() {
         digitalWrite(FANPUMP_PIN, HIGH);
       }
     } else if(digitalRead(FANPUMP_PIN) == HIGH) {
-<<<<<<< HEAD
       if(dt >= 270000){
-=======
-      if(dt >= 240000){
->>>>>>> ce891f02e961f92f90984757dec28e22f6ef1ffb
         digitalWrite(FANPUMP_PIN, LOW);
       }
     }
