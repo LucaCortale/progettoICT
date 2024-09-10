@@ -226,12 +226,30 @@ $(document).ready(function () {
                     <button type="label" style="text-align: center;" id="statoVentola" name="statoVentola" class="form-control" placeholder="statoVentola" value=<?php echo $statoFan ?>>
                     <?php echo $statoFan ?>
                      </button>
+                     
                 </div>
             </div>
             <div class="col-md-3">
                     <div class="form-group">
-                        <button type="submit" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
+                        <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
                         </button>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $("#btnVentola").click(function() {
+
+                                    var statoFan = "<?php echo $statoFan; ?>";
+                                    // Determina il comando da inviare
+                                    var comando = (statoFan === 'DISATTIVO') ? "onFan" : "offFan";
+
+                                    // Esegui chiamata AJAX per inviare il comando alla pagina separata
+                                    $.post("invioComandoArduino.php", { comando: comando }, function(data) {
+                                        // Mostra il risultato della richiesta
+                                        alert(data);  // Puoi sostituire l'alert con un altro metodo di notifica
+                                    });
+                                });
+                            });
+                        </script>
                     </div>
             </div>
         </div>
@@ -253,22 +271,7 @@ $(document).ready(function () {
                             $statoPump = 'DISATTIVO';
                     }                      
                 ?>
-                <?php
-                        //LETTURA STATO ARDUINO
-                       function invia_comando($comando) {
-                        global $arduino_ip, $port;
-                        $url = 'http://$arduino_ip:$port/$comando';
 
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, $url);
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        $response = curl_exec($ch);
-                        curl_close($ch);
-
-                        return $response;
-                    }
-                        
-                        ?>
                     <button type="text" style="text-align: center;" id="statoPompa" name="statoPompa" class="form-control" placeholder="statoPompa"value=<?php echo $statoPump ?>>
                         <?php echo $statoPump ?>
                      </button>
@@ -279,6 +282,22 @@ $(document).ready(function () {
                     <button type="button" style="text-align: center; width: 200px;" id="btnPompa" name="btnPompa" class="btn btn-primary action_btn scritte" placeholder="btnPompa" value=<?php echo$statoPump ?>>
                     <?php echo $statoPump ?>
                      </button>
+                     <script>
+                            $(document).ready(function() {
+                                $("#btnPompa").click(function() {
+
+                                    var statoPump = "<?php echo $statoPump; ?>";
+                                    // Determina il comando da inviare
+                                    var comando = (statoPump === 'DISATTIVO') ? "onPump" : "offPump";
+
+                                    // Esegui chiamata AJAX per inviare il comando alla pagina separata
+                                    $.post("invioComandoArduino.php", { comando: comando }, function(data) {
+                                        // Mostra il risultato della richiesta
+                                        alert(data);  // Puoi sostituire l'alert con un altro metodo di notifica
+                                    });
+                                });
+                            });
+                        </script>
                 </div>
             </div>
         </div>
