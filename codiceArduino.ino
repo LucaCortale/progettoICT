@@ -12,7 +12,7 @@ DHT dht(DHTPIN, DHTTYPE);
 float hum;
 float temp;
 
-unsigned long t0, dt, timer = 0;
+unsigned long t0, t1, dt = 0;
 int statoPump = 0;
 int statoFan = 0;
 int statoFanPump = 0;
@@ -21,13 +21,13 @@ int comando = 0;
 bool checkComando = false;
 
 
-const char* ssid = "Wind3 HUB - B29FC4";
-const char * pass = "44t3bc5ss36259hy";
+const char* ssid = "";
+const char * pass = "";
 
 WiFiClient client;
 WiFiServer server(80);
 
-const char* server1 = "192.168.1.23";
+const char* server1 = "192.168.1.";
 const int port = 80;
 
 void setup() {
@@ -87,7 +87,7 @@ void loop() {
     Serial.println("Client disconnected");
   }
 
-  // Serial.println(WiFi.localIP());
+  //Serial.println(WiFi.localIP());
 
   dt = millis() - t0;
 
@@ -127,7 +127,7 @@ void loop() {
       checkComando = true;
     }
 
-    if((millis() - t0) > 30000){
+    if((millis() - t0) > 1800000){
       checkComando = false;
       comando = 0;
       t0 = millis();
@@ -167,23 +167,31 @@ void loop() {
       checkComando = true;
     }
 
-    if((millis() - t0) > 30000){
+    if((millis() - t0) > 1800000){
       checkComando = false;
       comando = 0;
       t0 = millis();
     }
   }else if (comando == 3) {
+    if(!checkComando) {
+      t0 = millis();
+      t1=millis();
+      checkComando = true;
+    }
+
     digitalWrite(PUMP_PIN, HIGH);
     if (digitalRead(PUMP_PIN) == HIGH) {
-      if (dt >= 3000){
+      if (millis() - t1 >= 30000){
         digitalWrite(PUMP_PIN, LOW);
         digitalWrite(FANPUMP_PIN, HIGH);
       }
     } else if(digitalRead(FANPUMP_PIN) == HIGH) {
-      if(dt >= 9000){
+      if(millis() - t1 >= 270000){
         digitalWrite(FANPUMP_PIN, LOW);
+        t1 = millis();
       }
     }
+
     if (client.connect(server1, port)) {
 
       hum = dht.readHumidity();
@@ -212,12 +220,8 @@ void loop() {
     } else {
       Serial.println("Connection to server failed");
     }
-    if(!checkComando) {
-      t0 = millis();
-      checkComando = true;
-    }
 
-    if((millis() - t0) > 30000){
+    if((millis() - t0) > 1800000){
       checkComando = false;
       comando = 0;
       t0 = millis();
@@ -258,13 +262,13 @@ void loop() {
       checkComando = true;
     }
 
-    if((millis() - t0) > 30000){
+    if((millis() - t0) > 1800000){
       checkComando = false;
       comando = 0;
       t0 = millis();
     }
   }else{
-    if (dt >= 10000){
+    if (dt >= 300000){
       hum = dht.readHumidity();
       temp = dht.readTemperature();
       t0 = millis();
@@ -322,12 +326,12 @@ void loop() {
       Serial.println(statoPump == HIGH ? "On" : "Off");
 
     } else if (digitalRead(PUMP_PIN) == HIGH) {
-      if (dt >= 3000){
+      if (dt >= 30000){
         digitalWrite(PUMP_PIN, LOW);
         digitalWrite(FANPUMP_PIN, HIGH);
       }
     } else if(digitalRead(FANPUMP_PIN) == HIGH) {
-      if(dt >= 9000){
+      if(dt >= 270000){
         digitalWrite(FANPUMP_PIN, LOW);
       }
     }
