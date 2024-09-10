@@ -29,10 +29,14 @@ setTitolo('Chi siamo');
                   </div>
                 </div>
               <div class="employee">
-                  <img style='width: 100px; height: auto;'  src="image/cortaleLuca.jpg" alt="Foto ">
+                  <img style='width: 100px; height: auto;'  src="image/lorenzocanini.jpeg" alt="Foto ">
                   <div class="employee-info">
                       <h2>Lorenzo Canini</h2>
-                      <h3>Developer</h3>
+                      <h3>Project Manager</h3>
+                      <p> Project manager con una forte passione per l'innovazione e l'informatica, specializzato nella gestione di progetti tecnologici. Esperto nel guidare team verso soluzioni creative e digitali per ottimizzare processi
+                      <a href="https://www.linkedin.com/" target="_blank">
+                            <img class="logoSocial"style='width: 30px; height: auto;' src="image/linkedin.png" alt="Linkedin Logo">
+                        </a> </p>
                   </div>
                 </div>
             </div>
