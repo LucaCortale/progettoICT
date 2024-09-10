@@ -106,7 +106,8 @@ void loop() {
         statoPump = digitalRead(PUMP_PIN);
       }
 
-      String data = "umidita=" + String(hum) + "&temperatura=" + String(temp) + "&statofan=" + String(statoFan) + "&statopump=" + String(statoPump);
+      String data = "umidita=" + String(hum) + "&temperatura=" + String(temp) + 
+                    "&statofan=" + String(statoFan) + "&statopump=" + String(statoPump);
 
       client.println("POST /progettoIct/salvaDati.php HTTP/1.1");
       client.println("Host: " + String(server1));
@@ -127,7 +128,7 @@ void loop() {
       checkComando = true;
     }
 
-    if((millis() - t0) > 30000){
+    if((millis() - t0) > 1,800,000){
       checkComando = false;
       comando = 0;
       t0 = millis();
@@ -264,7 +265,7 @@ void loop() {
       t0 = millis();
     }
   }else{
-    if (dt >= 10000){
+    if (dt >= 300000){
       hum = dht.readHumidity();
       temp = dht.readTemperature();
       t0 = millis();
@@ -322,12 +323,12 @@ void loop() {
       Serial.println(statoPump == HIGH ? "On" : "Off");
 
     } else if (digitalRead(PUMP_PIN) == HIGH) {
-      if (dt >= 3000){
+      if (dt >= 30000){
         digitalWrite(PUMP_PIN, LOW);
         digitalWrite(FANPUMP_PIN, HIGH);
       }
     } else if(digitalRead(FANPUMP_PIN) == HIGH) {
-      if(dt >= 9000){
+      if(dt >= 240000){
         digitalWrite(FANPUMP_PIN, LOW);
       }
     }
