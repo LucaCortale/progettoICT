@@ -27,7 +27,7 @@ const char * pass = "";
 WiFiClient client;
 WiFiServer server(80);
 
-const char* server1 = "192.168.1.";
+const char* server1 = "";
 const int port = 80;
 
 void setup() {
@@ -135,6 +135,25 @@ void loop() {
     } 
   } else if (comando == 2) {
     digitalWrite(FAN_PIN, LOW);
+    if(!checkComando) {
+      t0 = millis();
+      t1=millis();
+      checkComando = true;
+    }
+    if (digitalRead(PUMP_PIN) == HIGH) {
+      if (millis() - t1 >= 30000){
+        digitalWrite(PUMP_PIN, LOW);
+        digitalWrite(FANPUMP_PIN, HIGH);
+      }
+    } else if(digitalRead(FANPUMP_PIN) == HIGH) {
+      if(millis() - t1 >= 270000){
+        digitalWrite(FANPUMP_PIN, LOW);
+      }
+    } else if(millis() - t1 >= 300000) {
+      digitalWrite(PUMP_PIN, HIGH);
+      t1 = millis();
+    }
+
     if (client.connect(server1, port)) {
 
       hum = dht.readHumidity();
@@ -163,10 +182,6 @@ void loop() {
     } else {
       Serial.println("Connection to server failed");
     }
-    if(!checkComando) {
-      t0 = millis();
-      checkComando = true;
-    }
 
     if((millis() - t0) > 1800000){
       checkComando = false;
@@ -178,6 +193,7 @@ void loop() {
       t0 = millis();
       t1=millis();
       checkComando = true;
+      digitalWrite(PUMP_PIN, HIGH);
     }
 
     digitalWrite(PUMP_PIN, HIGH);

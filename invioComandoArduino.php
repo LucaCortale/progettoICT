@@ -30,10 +30,10 @@ if (isset($_POST['comando'])) {
         echo "Ventola spenta!";
     } elseif ($comando === "onPump") {
         inviaComandoArduino("http://".$arduinoIP."/pompa?stato=on");
-        echo "Ventola spenta!";
+        echo "Pompa accesa!";
     } elseif ($comando === "offPump") {
         inviaComandoArduino("http://".$arduinoIP."/pompa?stato=off");
-        echo "Ventola spenta!";
+        echo "Pompa spenta!";
     } 
 } else {
     echo "Nessun comando ricevuto!";

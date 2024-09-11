@@ -231,14 +231,14 @@ $(document).ready(function () {
             </div>
             <div class="col-md-3">
                     <div class="form-group">
-                        <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
-                        </button>
+                            <button type="button" style="text-align: center; width: 200px;" id="btnVentola" name="btnVentola" class="btn btn-primary action_btn scritte" placeholder="btnVentola">
+                            </button>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                         <script>
                             $(document).ready(function() {
                                 $("#btnVentola").click(function() {
 
-                                    var statoFan = "<?php echo $statoFan; ?>";
+                                    var statoFan = "<?php // echo $statoFan; ?>";
                                     // Determina il comando da inviare
                                     var comando = (statoFan === 'DISATTIVO') ? "onFan" : "offFan";
 
